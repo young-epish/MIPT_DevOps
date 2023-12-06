@@ -11,7 +11,7 @@ services:
 
   postgres-customized:
     build:
-      context: ./HW1/postgresql
+      context: ../HW1/postgresql
       dockerfile: Dockerfile
     image: registry.gitlab.akhcheck.ru/vladislav.epishkov/mipt_devops/postgres-customized
     container_name: postgres-customized
