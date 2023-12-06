@@ -30,4 +30,4 @@ deploy_compose:
     - scp -i ~/.ssh/id_rsa ./HW2/docker-compose-deploy.yml student07@master.hadoop.akhcheck.ru:~/docker-compose.yml
     - ssh -i ~/.ssh/id_rsa student07@master.hadoop.akhcheck.ru docker compose up -d
   tags:
-    - dind
+    - dind2
