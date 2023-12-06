@@ -10,7 +10,7 @@ build_images:
       alias: docker
   script:
     - docker login registry.gitlab.akhcheck.ru -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
-    - docker-compose build ./HW2/docker-compose.yml
+    - docker-compose ./HW2/docker-compose.yml build
     - docker push registry.gitlab.akhcheck.ru/vladislav.epishkov/mipt_devops/nginx-customized
     - docker push registry.gitlab.akhcheck.ru/vladislav.epishkov/mipt_devops/postgres-customized
   tags:
@@ -26,6 +26,6 @@ deploy_compose:
     - ssh -i $SSH_KEY_NAME student07@master.hadoop.akhcheck.ru docker login registry.gitlab.akhcheck.ru -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
     - ssh -i $SSH_KEY_NAME student07@master.hadoop.akhcheck.ru docker pull registry.gitlab.akhcheck.ru/vladislav.epishkov/mipt_devops/nginx-customized
     - ssh -i $SSH_KEY_NAME student07@master.hadoop.akhcheck.ru docker pull registry.gitlab.akhcheck.ru/vladislav.epishkov/mipt_devops/postgres-customized
-    - scp -i $SSH_KEY_NAME docker-compose-deploy.yml student07@master.hadoop.akhcheck.ru:~/docker-compose.yml
+    - scp -i $SSH_KEY_NAME ./HW2/docker-compose-deploy.yml student07@master.hadoop.akhcheck.ru:~/docker-compose.yml
     - ssh -i $SSH_KEY_NAME student07@master.hadoop.akhcheck.ru docker compose up -d
 
