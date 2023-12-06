@@ -1,8 +1,8 @@
 services:
   nginx-customized:
     build:
-      context: .
-      dockerfile: ../HW1/nginx/Dockerfile
+      context: ../HW1/nginx
+      dockerfile: Dockerfile
     image: registry.gitlab.akhcheck.ru/vladislav.epishkov/mipt_devops/nginx-customized
     container_name: nginx-customized
     ports:
@@ -11,8 +11,8 @@ services:
 
   postgres-customized:
     build:
-      context: .
-      dockerfile: ../HW1/postgresql/Dockerfile
+      context: ./HW1/postgresql
+      dockerfile: Dockerfile
     image: registry.gitlab.akhcheck.ru/vladislav.epishkov/mipt_devops/postgres-customized
     container_name: postgres-customized
     ports:
