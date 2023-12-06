@@ -24,7 +24,6 @@ deploy_compose:
     - ssh-keyscan -t rsa master.hadoop.akhcheck.ru >> ~/.ssh/known_hosts
     - echo "$SSH_KEY_NAME" | base64 -d > ~/.ssh/id_rsa
     - chmod 0600 ~/.ssh/id_rsa
-    - ssh-add ~/.ssh/id_rsa
     - ssh -i ~/.ssh/id_rsa student07@master.hadoop.akhcheck.ru docker login registry.gitlab.akhcheck.ru -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
     - ssh -i ~/.ssh/id_rsa student07@master.hadoop.akhcheck.ru docker pull registry.gitlab.akhcheck.ru/vladislav.epishkov/mipt_devops/nginx-customized
     - ssh -i ~/.ssh/id_rsa student07@master.hadoop.akhcheck.ru docker pull registry.gitlab.akhcheck.ru/vladislav.epishkov/mipt_devops/postgres-customized
