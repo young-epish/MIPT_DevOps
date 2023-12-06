@@ -10,7 +10,7 @@ build_images:
       alias: docker
   script:
     - docker login registry.gitlab.akhcheck.ru -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
-    - docker-compose ./HW2/docker-compose.yml build
+    - docker-compose -f ./HW2/docker-compose.yml build
     - docker push registry.gitlab.akhcheck.ru/vladislav.epishkov/mipt_devops/nginx-customized
     - docker push registry.gitlab.akhcheck.ru/vladislav.epishkov/mipt_devops/postgres-customized
   tags:
