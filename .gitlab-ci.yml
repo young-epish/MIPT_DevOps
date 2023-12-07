@@ -33,5 +33,5 @@ deploy_compose:
     - ssh -i $SSH_DECODED_KEY student07@master.hadoop.akhcheck.ru docker pull registry.gitlab.akhcheck.ru/vladislav.epishkov/mipt_devops/postgres-customized
     - scp -i $SSH_DECODED_KEY ./HW2/docker-compose-deploy.yml student07@master.hadoop.akhcheck.ru:~/docker-compose.yml
     - ssh -i $SSH_DECODED_KEY student07@master.hadoop.akhcheck.ru docker compose up -d
-#  tags:
-#    - dind2
+  tags:
+    - dind2
