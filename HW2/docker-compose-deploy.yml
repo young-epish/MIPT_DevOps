@@ -1,12 +1,13 @@
 services:
   nginx-customized:
-    image: registry.gitlab.akhcheck.ru/vladislav.epishkov/mipt_devops/nginx-customized
+    image: registry.gitlab.com/young-epish/mipt_devops/nginx-customized
     container_name: nginx-customized
     ports:
       - "35007:35007"
 
+
   postgres-customized:
-    image: registry.gitlab.akhcheck.ru/vladislav.epishkov/mipt_devops/postgres-customized
+    image: registry.gitlab.com/young-epish/mipt_devops/postgres-customized
     container_name: postgres-customized
     ports:
       - "45007:45007"

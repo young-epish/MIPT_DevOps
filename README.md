@@ -67,3 +67,8 @@ https://learngitbranching.js.org/
     1. Слияние с удаленным репозиторием
     2. Пустой источник
     3. Аргументы для pull
+
+--
+## Homework 2
+
+Файлы, относящиеся к заданию, расположены в ./HW2, запуск CI был в [gitlab.com](https://gitlab.com/young-epish/mipt_devops.git)
