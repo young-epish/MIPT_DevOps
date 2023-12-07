@@ -22,16 +22,16 @@ deploy_compose:
   script:
     - mkdir -p ~/.ssh
     - ssh-keyscan -t rsa master.hadoop.akhcheck.ru >> ~/.ssh/known_hosts
-    - echo $SSH_KEY_NAME
-    - cat $SSH_KEY_NAME
-    - base64 -d $SSH_KEY_NAME > $SSH_DECODED_KEY
-    - echo $SSH_DECODED_KEY
-    - cat $SSH_DECODED_KEY
-    - chmod 0600 $SSH_DECODED_KEY
-    - ssh -i $SSH_DECODED_KEY student07@master.hadoop.akhcheck.ru docker login registry.gitlab.akhcheck.ru -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
-    - ssh -i $SSH_DECODED_KEY student07@master.hadoop.akhcheck.ru docker pull registry.gitlab.akhcheck.ru/vladislav.epishkov/mipt_devops/nginx-customized
-    - ssh -i $SSH_DECODED_KEY student07@master.hadoop.akhcheck.ru docker pull registry.gitlab.akhcheck.ru/vladislav.epishkov/mipt_devops/postgres-customized
-    - scp -i $SSH_DECODED_KEY ./HW2/docker-compose-deploy.yml student07@master.hadoop.akhcheck.ru:~/docker-compose.yml
-    - ssh -i $SSH_DECODED_KEY student07@master.hadoop.akhcheck.ru docker compose up -d
+    - echo "${SSH_KEY_NAME}"
+    - cat "${SSH_KEY_NAME}"
+    - base64 -d "${SSH_KEY_NAME}" > "${SSH_DECODED_KEY}"
+    - echo "${SSH_DECODED_KEY}"
+    - cat "${SSH_DECODED_KEY}"
+    - chmod 0600 "${SSH_DECODED_KEY}"
+    - ssh -i "${SSH_DECODED_KEY}" student07@master.hadoop.akhcheck.ru docker login registry.gitlab.akhcheck.ru -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
+    - ssh -i "${SSH_DECODED_KEY}" student07@master.hadoop.akhcheck.ru docker pull registry.gitlab.akhcheck.ru/vladislav.epishkov/mipt_devops/nginx-customized
+    - ssh -i "${SSH_DECODED_KEY}" student07@master.hadoop.akhcheck.ru docker pull registry.gitlab.akhcheck.ru/vladislav.epishkov/mipt_devops/postgres-customized
+    - scp -i "${SSH_DECODED_KEY}" ./HW2/docker-compose-deploy.yml student07@master.hadoop.akhcheck.ru:~/docker-compose.yml
+    - ssh -i "${SSH_DECODED_KEY}" student07@master.hadoop.akhcheck.ru docker compose up -d
   tags:
     - dind2
