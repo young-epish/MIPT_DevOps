@@ -22,7 +22,7 @@ deploy_compose:
   script:
     - mkdir -p ~/.ssh
     - ssh-keyscan -t rsa master.hadoop.akhcheck.ru >> ~/.ssh/known_hosts
-    - chmod 600 "$SSH_KEY_NAME"
+    - chmod 0600 $SSH_KEY_NAME
     - ssh -i $SSH_KEY_NAME student07@master.hadoop.akhcheck.ru docker login registry.gitlab.akhcheck.ru -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
     - ssh -i $SSH_KEY_NAME student07@master.hadoop.akhcheck.ru docker pull registry.gitlab.akhcheck.ru/vladislav.epishkov/mipt_devops/nginx-customized
     - ssh -i $SSH_KEY_NAME student07@master.hadoop.akhcheck.ru docker pull registry.gitlab.akhcheck.ru/vladislav.epishkov/mipt_devops/postgres-customized
